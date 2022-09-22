@@ -1,0 +1,115 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<!--[if IE 9 ]><html class="ie9" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="tr">
+<!--<![endif]-->
+<head>
+
+    <!-- Head Partial -->
+    <title>Admin Paneli</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+    <!-- Tema JS&CSS -->
+
+    <script src="~/Content/Scripts/jquery-1.8.3.min.js"></script>
+    <script src="~/Content/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Content/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Content/Scripts/jquery-1.8.3.js"></script>
+    <script src="~/Content/Scripts/jquery-1.8.3.intellisense.js"></script>
+    <link rel="icon" href="~/Image/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id="theme" href="~/Content/css/theme-default.css" />
+
+</head>
+
+<body>
+
+    <div class="login-container lightmode" id="girisCtrl">
+        <div class="login-box animated fadeInDown">
+            <div class="login-logo"></div>
+            <div class="login-body">
+                <div class="login-title"><h6>Hoşgeldiniz, Giriş Yapınız </h6></div>
+
+                <div class="form-group ">
+                    <div class="col-md-12 loginInput">
+                        <input type="text" class="form-control" v-model="giris.yoneticiKAdi" name="yoneticiKAdi" placeholder="Kullanıcı Adı" />
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-md-12 loginInput">
+                        <input type="password" class="form-control" v-model="giris.yoneticiSifre" name="yoneticiSifre" placeholder="Parola" />
+                    </div>
+                </div>
+                <div class="form-group ">
+                    
+                    <div class="col-md-6 login">
+                        <button v-on:click="girisSorgula()" class="btn btn-info btn-block">GİRİŞ</button>
+                    </div>
+                </div>
+
+                <div class="login-subtitle" id="divSonuc">
+
+                </div>
+
+            </div>
+            <div class="login-footer">
+                <div class="pull-left">
+                    &copy; Copyright 2022 EtuBlog - Admin Giriş Paneli
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/vue/vue.js"></script>
+    <script src="~/axios/axios.js"></script>
+
+    <script>
+        var girisCtrl = new Vue({
+            el: "#girisCtrl",
+            data: {
+                giris: {}
+            },
+            mounted: function () {
+                this.girisSorgula;
+                this.oturumuKapat;
+            },
+            methods: {
+                girisSorgula: function () {
+                    var vm = this;
+                    axios.post("Giris/GirisSorgula", vm.giris)
+                        .then(function (cevap) {//controllerdan gelen cevap
+                            alert(cevap.data.message);
+                            document.getElementById("divSonuc").innerHTML = cevap.data.message;
+                            if (cevap.data.result) {
+                                window.location.href = cevap.data.url;//url yönlendir.
+                            }
+
+                        })
+                        .catch(function (error) {
+                            document.getElementById("divSonuc").innerHTML = error.data.message;
+                            alert(error.data.message);
+                        });
+                },
+                oturumuKapat: function () {
+                    axios.post("Giris/OturumuKapat")
+                        .then(function (response) {
+                            alert("Oturum kapatılıyor...");
+                        })
+                        .catch(function (error) {
+                            alert(error.data.message);
+                        });
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

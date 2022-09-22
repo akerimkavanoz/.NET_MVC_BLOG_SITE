@@ -1,0 +1,53 @@
+﻿@model EtuBlog.Models.Hakkımda
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<script type="text/javascript" src="~/Content/Script/js/plugins/bootstrap/bootstrap-file-input.js"></script>
+<script type="text/javascript" src="~/Content/Script/js/plugins/bootstrap/bootstrap-select.js"></script>
+<script type="text/javascript" src="~/Content/Script/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+
+
+<!-- RENDER -->
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("HakkımdaDuzenle", "Hakkımda", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-horizontal">
+                    @Html.HiddenFor(model => model.id)
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Hakkımda Düzenle <a style="color:red;" href="/Admin/Giris/Anasayfa">Geri</a></h3>
+                            <ul class="panel-controls">
+                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Makakle İçerik</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <textarea class="ckeditor" rows="10" name="hakkımdaIcerik"> "@Model.hakkımdaIcerik"</textarea>
+                                    <span class="help-block"></span>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default">Temizle</button>
+                            <button class="btn btn-primary pull-right">Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</div>

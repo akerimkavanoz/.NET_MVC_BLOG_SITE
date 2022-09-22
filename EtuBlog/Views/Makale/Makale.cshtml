@@ -1,0 +1,62 @@
+﻿@model EtuBlog.Models.Makale
+
+
+<div class="blog" id="makale">
+
+    <h2 class="h2">Son Makaleler</h2>
+
+    <div class="blog-card-group">
+
+        <div class="blog-card" v-for="m in makaleverisi">
+
+            <div class="blog-card-banner">
+
+                <img v-bind:src="m.makaleResim" width="250" alt="" class="blog-banner-img">
+
+            </div>
+
+            <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Veritabanı</button>
+
+                <h3>
+                    <a :href="'/Makale/MakaleDetay/'+m.makaleID" class="h3">
+                        {{m.makaleBaslik}}
+                    </a>
+                </h3>
+
+                <p class="blog-text">
+                    <span v-html="m.makaleIcerik"></span>
+                </p>
+
+                <div class="wrapper-flex">
+
+                    <div class="profile-wrapper">
+                        <img src="~/Image/img/kerim.jpg" alt="yazarResim" width="50">
+                    </div>
+
+                    <div class="wrapper">
+                        <a class="h4">Abdulkerim Kavanoz</a>
+
+                        <p class="text-sm">
+                            <ion-icon name="time-outline"></ion-icon>
+                            <date>{{m.makaleEklenmeTarihi}}</date>
+                            @*<span class="separator"></span>*@
+                            @*<img src="~/assets/images/view-number.png" alt="viewnumber" width="17">*@
+                            <h4 class="h4">{{m.makaleGoruntulenmeSayisi}}</h4>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    @*<button class="btn load-more">Load More</button>*@
+
+</div>
+<script src="~/vue/makale.js"></script>
+
+
+

@@ -1,0 +1,132 @@
+﻿ 
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!--
+      - #HERO SECTION
+    -->
+
+<div class="hero">
+
+    <div class="container">
+
+        <div class="left">
+
+            <h1 class="h1">
+                Merhaba! Ben Abdulkerim Kavanoz.
+            </h1>
+
+            <p class="h3">
+                Vuejs ve Mvc teknolojileri ile ilgileniyorum.
+            </p>
+
+            <div class="btn-group">
+                <a href="/Home/Hakkımda" class="btn btn-secondary">Hakkımda</a>
+            </div>
+
+        </div>
+
+        <div class="right">
+
+            <div class="pattern-bg"></div>
+            <div class="img-box">
+                <img src="~/Image/img/kerim.jpg" alt="Yönetici Resmi" class="hero-img">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="main">
+
+    <div class="container">
+
+        <!--
+          - BLOG SECTION
+        -->
+        @await Html.PartialAsync("~/Views/Makale/Makale.cshtml")
+
+        <!--
+          - ASIDE
+        -->
+
+        <div class="aside">
+
+            <div class="topics">
+
+                <h2 class="h2">Kategoriler</h2>
+
+                <a href="#" class="topic-btn">
+                    <div class="icon-box">
+                        <ion-icon name="server-outline"></ion-icon>
+                    </div>
+
+                    <p>Veritabanı</p>
+                </a>
+
+                <a href="#" class="topic-btn">
+                    <div class="icon-box">
+                        <ion-icon name="accessibility-outline"></ion-icon>
+                    </div>
+
+                    <p>Siber Güvenlik</p>
+                </a>
+
+                <a href="#" class="topic-btn">
+                    <div class="icon-box">
+                        <ion-icon name="rocket-outline"></ion-icon>
+                    </div>
+
+                    <p>Web Programlama</p>
+                </a>
+
+            </div>
+
+            <div class="contact">
+
+                <h2 class="h2">Hadi Konuşalım</h2>
+
+                <div class="wrapper">
+
+                    <p>
+                        Şirketinizin sorunları aşmasına nasıl yardımcı olabileceğim hakkında daha fazla bilgi edinmek ister misiniz? Bir sohbet edelim.
+                    </p>
+
+                    <ul class="social-link">
+
+                        <li>
+                            <a href="#" class="icon-box discord">
+                                <ion-icon name="logo-discord"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://twitter.com/keriim_61" class="icon-box twitter">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="icon-box facebook">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

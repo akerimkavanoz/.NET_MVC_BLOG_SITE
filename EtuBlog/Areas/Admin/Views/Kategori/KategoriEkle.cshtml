@@ -1,0 +1,52 @@
+﻿@model EtuBlog.Models.Kategori
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+
+    <script type="text/javascript" src="~/Content/Script/js/plugins/bootstrap/bootstrap-file-input.js"></script>
+    <script type="text/javascript" src="~/Content/Script/js/plugins/bootstrap/bootstrap-select.js"></script>
+    <script type="text/javascript" src="~/Content/Script/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+
+    <!-- RENDER -->
+    <div class="page-content-wrap">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("KategoriEkle", "Kategori", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-horizontal">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Kategori Ekle</h3>
+                                <ul class="panel-controls">
+                                    <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-12 control-label">Kategori Adı</label>
+                                    <div class="col-md-6 col-xs-12">
+
+                                        <span><span class=""></span></span>
+                                        <input type="text" class="col-md-12" name="kategoriAdi">
+
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <button class="btn btn-default">Temizle</button>
+                                <button class="btn btn-primary pull-right">Kaydet</button>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div>

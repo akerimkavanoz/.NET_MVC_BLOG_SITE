@@ -1,0 +1,88 @@
+﻿@model EtuBlog.Models.Yonetici
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/Script/js/plugins/bootstrap/bootstrap-file-input.js"></script>
+<script type="text/javascript" src="~/Content/Script/js/plugins/bootstrap/bootstrap-select.js"></script>
+<script type="text/javascript" src="~/Content/Script/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+
+<!-- RENDER -->
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("ProfilDuzenle", "Profil", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-horizontal">
+                    @Html.HiddenFor(model => model.yoneticiID)
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Profil Düzenle <a style="color:red;" href="/Admin/Giris/Anasayfa">Geri</a></h3>
+                            <ul class="panel-controls">
+                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Adınız: </label>
+                                <div class="col-md-6 col-xs-12">
+
+                                    <span><span class=""></span></span>
+                                    <input type="text" class="col-md-12" name="yoneticiAdi" value="@Model.yoneticiAdi">
+
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Soyadınız: </label>
+                                <div class="col-md-6 col-xs-12">
+                                    <input type="text" class="col-md-12" name="yoneticiSoyadi" value="@Model.yoneticiSoyadi">
+                                    <span class="help-block"></span>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Kullanıcı Adınız: </label>
+                                <div class="col-md-6 col-xs-12">
+                                    <input type="text" class="col-md-12" name="yoneticiKAdi" value="@Model.yoneticiKAdi">
+                                    <span class="help-block"></span>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Şifreniz: </label>
+                                <div class="col-md-6 col-xs-12">
+                                    <input type="text" class="col-md-12" name="yoneticiSifre" value="@Model.yoneticiSifre">
+                                    <span class="help-block"></span>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Profil Resminiz: </label>
+                                <div class="col-md-6 col-xs-12">
+                                    <input type="file" class="fileinput btn-primary" name="yoneticiResim" value="@Model.yoneticiResim" id="filename" title="Resim Seç" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default">Temizle</button>
+                            <button class="btn btn-primary pull-right">Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</div>
